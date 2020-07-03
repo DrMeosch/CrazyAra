@@ -3,6 +3,19 @@ dist: xenial
 
 matrix:
   include:
+    - os: linux
+      compiler: gcc
+      env:
+        - COMPILER=g++-8
+        - COMP=gcc
+
+    - os: linux
+      compiler: clang
+      env:
+        - COMPILER=clang++-6.0
+        - COMP=clang
+        - LDFLAGS=-fuse-ld=lld
+
     - os: osx
       compiler: gcc
       env:
@@ -16,7 +29,7 @@ matrix:
         - COMP=clang
 
 before_script:
-  - cd engine/src
+  - cd engine
 
 script:
   # Build tests
