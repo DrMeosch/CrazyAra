@@ -35,7 +35,7 @@ script:
   # Build tests
   - mkdir build
   - cd build
-  - cmake -DBUILD_TESTS=1 ..
+  - cmake -DBUILD_TESTS=1 -DUSE_TENSORRT=0 -DUSE_MXNET=0 ..
   - make clean && make -j2
 
   # Run tests
